@@ -23,6 +23,14 @@ b2ed39de
 
 4. What changed between commit e474c and 82045?
 
+processs_movie_data.py was changed on the following lines: 
+
+-    gross_sort = lambda x : x["Gross"]
++    gross_sort = lambda x : int(x["Gross"])
+
+-    top_five = rows[:-5:-1]
++    top_five = rows[:-6:-1]
+
 ## Predicting merges
 
 Assume at the start of each of these three questions that your
