@@ -50,7 +50,8 @@ What branches would change, and how?
 ```
 git checkout test
 git merge top_N
-```
+
+When I merged top_N into test, there were not any merge conflicts. The message git showed explained that it was updating the branch from commit bd46ca0 (prevous commit on test) to 6ecaffb (latests state on top_N). Git used a fast forward merge which means that a merge wasn't required because top_N was ahead of test so instead the pointer for test is changed to match the latest of top_N. In this process, only the process_movie_data file had any changes. 
 
 6. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -58,6 +59,7 @@ What branches would change, and how?
 git checkout top_ten
 git merge test
 ```
+When I merged test into top_ten, there were not any merge conflicts, and git gave the following message: Merge made by the 'ort' strategy. Upon googling, ort is a new merge operation that helps more efficiently solve conflicts. The top_ten branch changed because it took on the latest changes frolm test. 
 
 7. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -65,4 +67,6 @@ What branches would change, and how?
 git checkout test
 git rebase top_ten
 git rebase top_N
+```
+On the first rebase command when we tried to rebase with top_ten, git returned that "Current branch test is up to date" which means there were not any new commits on the top_ten branch that the test branch wasn't already up to date with. This command essentially didn't do anything. When I ran the second rebase command with top_N, there was a merge conflict on the process_movie_data file because one version had N and the other had 10 so git didn't know which part to keep. Once resolving the conflict, Git "Successfully rebased and updated refs/heads/test" indicating the rebase operation worked as expected. 
 ```
